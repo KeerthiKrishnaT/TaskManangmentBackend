@@ -1,206 +1,213 @@
 # Task Manager Pro
 
-A full-stack task management application built with ReactJS, React Native, Node.js, Express, and MongoDB.
+A full-stack task management application with web and mobile interfaces, built with React, React Native, Node.js, and MongoDB.
 
-## 🚀 Features
+## 📋 Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Setup Instructions](#setup-instructions)
+- [API Documentation](#api-documentation)
+- [Screenshots](#screenshots)
+
+## ✨ Features
+
+### Web Application
+- User authentication (Register, Login, Forgot Password, Reset Password)
+- Create, Read, Update, Delete tasks
+- Search and filter tasks by status
+- Task status management (Pending, In Progress, Completed)
+- Priority levels (Low, Medium, High)
+- Due date tracking
+- Responsive Material-UI design
+
+### Mobile Application
+- Full authentication flow
+- Task list with FlatList for efficient rendering
+- Pull-to-refresh functionality
+- Create, update, delete tasks
+- Task status cycling (tap to change status)
+- Search and filter capabilities
+- Modern React Native Paper UI
 
 ### Backend
-- ✅ RESTful API with Express.js
-- ✅ JWT-based authentication
-- ✅ MongoDB database with Mongoose
-- ✅ Input validation with Joi
-- ✅ Password hashing with bcrypt
-- ✅ Clean folder structure (routes/controllers/models/middleware)
-- ✅ Task CRUD operations
-- ✅ Search, filter, and pagination support
+- RESTful API
+- JWT authentication
+- Password encryption with bcrypt
+- Security questions for password recovery
+- MongoDB database
+- Input validation with Joi
 
-### Web Frontend (ReactJS)
-- ✅ User authentication (Login/Register)
-- ✅ Protected routes
-- ✅ Dashboard with task management
-- ✅ Task CRUD operations
-- ✅ Search and filter functionality
-- ✅ Pagination
-- ✅ Toast notifications
-- ✅ Reusable components (TaskCard, Modal, Button)
-- ✅ Material UI design
-- ✅ Error boundary
-- ✅ Skeleton loading states
-- ✅ LocalStorage JWT handling
+## 🛠 Technologies Used
 
-### Mobile App (React Native)
-- ✅ User login
-- ✅ Task list with FlatList
-- ✅ Pull-to-refresh
-- ✅ Create and update tasks
-- ✅ Update task status
-- ✅ AsyncStorage token persistence
-- ✅ Navigation stack
-- ✅ Search and filter
-- ✅ Material Design with React Native Paper
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT (JSON Web Tokens)
+- bcryptjs
+- Joi (Validation)
+
+### Web Frontend
+- React.js
+- React Router DOM
+- Material-UI (MUI)
+- Axios
+- React Context API
+
+### Mobile
+- React Native
+- Expo
+- React Navigation
+- React Native Paper
+- AsyncStorage
+- Axios
 
 ## 📁 Project Structure
 
 ```
 TaskManager App/
-├── backend/
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   └── taskController.js
-│   ├── middleware/
-│   │   ├── auth.js
-│   │   └── validation.js
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Task.js
-│   ├── routes/
-│   │   ├── auth.js
-│   │   └── tasks.js
-│   ├── .env.example
-│   ├── .gitignore
-│   ├── package.json
-│   └── server.js
-├── frontend/
-│   ├── public/
+├── backend/                 # Node.js/Express backend
+│   ├── controllers/         # Route controllers
+│   ├── models/             # MongoDB models
+│   ├── routes/             # API routes
+│   ├── middleware/         # Auth & validation middleware
+│   └── server.js           # Entry point
+│
+├── web/                    # React web application
 │   ├── src/
-│   │   ├── components/
-│   │   ├── context/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── App.js
-│   │   └── index.js
-│   ├── .gitignore
-│   └── package.json
-├── mobile/
-│   ├── src/
-│   │   ├── screens/
-│   │   ├── context/
-│   │   ├── services/
-│   │   └── config/
-│   ├── App.js
-│   ├── app.json
-│   ├── babel.config.js
-│   ├── package.json
-│   └── .gitignore
-└── README.md
+│   │   ├── components/     # Reusable components
+│   │   ├── pages/          # Page components
+│   │   ├── context/        # Context providers
+│   │   ├── services/       # API services
+│   │   └── config/         # Configuration
+│   └── public/             # Static files
+│
+└── mobile/                 # React Native mobile app
+    └── src/
+        ├── screens/        # Screen components
+        ├── context/        # Context providers
+        ├── services/       # API services
+        └── config/         # Configuration
 ```
 
-## 🛠️ Setup Instructions
+## 🚀 Setup Instructions
 
 ### Prerequisites
 
 - Node.js (v14 or higher)
 - MongoDB (local installation or MongoDB Atlas account)
-- npm or yarn
-- For mobile: Expo CLI (`npm install -g expo-cli`)
+- Git
+- For mobile: Expo Go app on your phone (optional)
 
-### Backend Setup
+### 1. Clone the Repository
 
-1. Navigate to the backend directory:
+```bash
+git clone <your-repository-url>
+cd TaskManager-App
+```
+
+### 2. Backend Setup
+
 ```bash
 cd backend
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Create a `.env` file based on `.env.example`:
-```bash
-cp .env.example .env
-```
+# Create .env file
+# Add the following variables:
+# MONGODB_URI=your_mongodb_connection_string
+# JWT_SECRET=your_secret_key
+# JWT_EXPIRE=7d
+# PORT=5000
 
-4. Update the `.env` file with your configuration:
-```env
-PORT=5000
+# Example .env file:
 MONGODB_URI=mongodb://localhost:27017/taskmanager
-JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
+JWT_SECRET=your_super_secret_key_here
 JWT_EXPIRE=7d
-NODE_ENV=development
-```
+PORT=5000
 
-5. Make sure MongoDB is running on your system or update `MONGODB_URI` with your MongoDB Atlas connection string.
-
-6. Start the backend server:
-```bash
+# Start the server
 npm run dev
 ```
 
-The backend will run on `http://localhost:5000`
+The backend server will run on `http://localhost:5000`
 
-### Web Frontend Setup
+### 3. Web Application Setup
 
-1. Navigate to the frontend directory:
 ```bash
-cd frontend
-```
+cd web
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Create a `.env` file (optional, defaults to `http://localhost:5000`):
-```env
+# Create .env file
+# Add the following:
 REACT_APP_API_URL=http://localhost:5000
-```
 
-4. Start the development server:
-```bash
+# Start the development server
 npm start
 ```
 
 The web app will open at `http://localhost:3000`
 
-### Mobile App Setup
+### 4. Mobile Application Setup
 
-1. Navigate to the mobile directory:
 ```bash
 cd mobile
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Update the API URL in `mobile/src/config/api.js`:
-```javascript
-const API_BASE_URL = 'http://YOUR_IP_ADDRESS:5000'; // Replace with your computer's IP
-```
+# Update API URL in src/config/api.js
+# Change to your computer's IP address:
+# const API_BASE_URL = 'http://YOUR_IP:5000';
 
-**Note:** For mobile testing, you need to use your computer's IP address instead of `localhost`. Find your IP:
-- **Windows:** `ipconfig` in CMD
-- **Mac/Linux:** `ifconfig` in Terminal
-
-4. Start the Expo development server:
-```bash
+# Start Expo development server
 npm start
+
+# Scan QR code with Expo Go app (Android/iOS)
+# Or press 'a' for Android emulator, 'i' for iOS simulator
 ```
 
-5. Scan the QR code with:
-   - **iOS:** Camera app
-   - **Android:** Expo Go app
+**Note**: For mobile testing, ensure:
+- Your phone and computer are on the same Wi-Fi network
+- Update `mobile/src/config/api.js` with your computer's IP address
+- Backend server is running and accessible
 
-## 📡 API Documentation
+## 📚 API Documentation
 
 ### Base URL
 ```
 http://localhost:5000
 ```
 
-### Authentication Endpoints
+### Authentication
 
-#### Register User
-```http
-POST /auth/register
-Content-Type: application/json
+All task endpoints require authentication. Include the JWT token in the Authorization header:
+```
+Authorization: Bearer <your_token>
+```
 
+---
+
+### 1. Register User
+
+**POST** `/auth/register`
+
+Register a new user account.
+
+**Request Body:**
+```json
 {
-  "username": "johndoe",
+  "username": "john_doe",
   "email": "john@example.com",
-  "password": "password123"
+  "password": "password123",
+  "securityQuestion": "What was the name of your first pet?",
+  "securityAnswer": "Fluffy"
 }
 ```
 
@@ -210,21 +217,26 @@ Content-Type: application/json
   "success": true,
   "message": "User registered successfully",
   "data": {
-    "token": "jwt_token_here",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "user": {
       "id": "user_id",
-      "username": "johndoe",
+      "username": "john_doe",
       "email": "john@example.com"
     }
   }
 }
 ```
 
-#### Login User
-```http
-POST /auth/login
-Content-Type: application/json
+---
 
+### 2. Login
+
+**POST** `/auth/login`
+
+Authenticate user and get access token.
+
+**Request Body:**
+```json
 {
   "email": "john@example.com",
   "password": "password123"
@@ -237,37 +249,166 @@ Content-Type: application/json
   "success": true,
   "message": "Login successful",
   "data": {
-    "token": "jwt_token_here",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
     "user": {
       "id": "user_id",
-      "username": "johndoe",
+      "username": "john_doe",
       "email": "john@example.com"
     }
   }
 }
 ```
 
-### Task Endpoints
+---
 
-All task endpoints require authentication. Include the JWT token in the Authorization header:
+### 3. Forgot Password
+
+**POST** `/auth/forgot-password`
+
+Request password reset token.
+
+**Request Body:**
+```json
+{
+  "email": "john@example.com",
+  "securityAnswer": "Fluffy"
+}
 ```
-Authorization: Bearer <token>
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Password reset link generated successfully",
+  "data": {
+    "resetToken": "reset_token_here",
+    "resetUrl": "http://localhost:3000/reset-password/reset_token_here",
+    "email": "john@example.com"
+  }
+}
 ```
 
-#### Create Task
-```http
-POST /tasks
-Authorization: Bearer <token>
-Content-Type: application/json
+---
 
+### 4. Reset Password
+
+**POST** `/auth/reset-password`
+
+Reset password using token.
+
+**Request Body:**
+```json
+{
+  "token": "reset_token_here",
+  "password": "newpassword123",
+  "confirmPassword": "newpassword123"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Password reset successful"
+}
+```
+
+---
+
+### 5. Get All Tasks
+
+**GET** `/tasks`
+
+Get all tasks for the authenticated user.
+
+**Query Parameters:**
+- `search` (optional): Search in title and description
+- `status` (optional): Filter by status (pending, in-progress, completed)
+- `priority` (optional): Filter by priority (low, medium, high)
+- `page` (optional): Page number (default: 1)
+- `limit` (optional): Items per page (default: 10)
+- `sortBy` (optional): Sort field (default: createdAt)
+- `sortOrder` (optional): Sort order (asc/desc, default: desc)
+
+**Example:**
+```
+GET /tasks?status=pending&priority=high&page=1&limit=20
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "tasks": [
+      {
+        "_id": "task_id",
+        "title": "Complete project",
+        "description": "Finish the task management app",
+        "status": "in-progress",
+        "priority": "high",
+        "dueDate": "2024-12-31T00:00:00.000Z",
+        "userId": "user_id",
+        "createdAt": "2024-01-01T00:00:00.000Z",
+        "updatedAt": "2024-01-01T00:00:00.000Z"
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "pages": 1
+  }
+}
+```
+
+---
+
+### 6. Get Single Task
+
+**GET** `/tasks/:id`
+
+Get a single task by ID.
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "_id": "task_id",
+    "title": "Complete project",
+    "description": "Finish the task management app",
+    "status": "in-progress",
+    "priority": "high",
+    "dueDate": "2024-12-31T00:00:00.000Z",
+    "userId": "user_id",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  }
+}
+```
+
+---
+
+### 7. Create Task
+
+**POST** `/tasks`
+
+Create a new task.
+
+**Request Body:**
+```json
 {
   "title": "Complete project",
-  "description": "Finish the task manager app",
+  "description": "Finish the task management app",
   "status": "pending",
   "priority": "high",
   "dueDate": "2024-12-31"
 }
 ```
+
+**Note:** All fields except `description` and `dueDate` are optional. Default values:
+- `status`: "pending"
+- `priority`: "medium"
+- `dueDate`: null
 
 **Response:**
 ```json
@@ -277,7 +418,7 @@ Content-Type: application/json
   "data": {
     "_id": "task_id",
     "title": "Complete project",
-    "description": "Finish the task manager app",
+    "description": "Finish the task management app",
     "status": "pending",
     "priority": "high",
     "dueDate": "2024-12-31T00:00:00.000Z",
@@ -288,213 +429,162 @@ Content-Type: application/json
 }
 ```
 
-#### Get All Tasks
-```http
-GET /tasks?page=1&limit=10&search=project&status=pending&priority=high
-Authorization: Bearer <token>
+---
+
+### 8. Update Task
+
+**PUT** `/tasks/:id`
+
+Update an existing task.
+
+**Request Body:**
+```json
+{
+  "title": "Updated task title",
+  "description": "Updated description",
+  "status": "in-progress",
+  "priority": "medium",
+  "dueDate": "2024-12-31"
+}
 ```
 
-**Query Parameters:**
-- `page` (optional): Page number (default: 1)
-- `limit` (optional): Items per page (default: 10)
-- `search` (optional): Search in title and description
-- `status` (optional): Filter by status (pending, in-progress, completed)
-- `priority` (optional): Filter by priority (low, medium, high)
-- `sortBy` (optional): Field to sort by (default: createdAt)
-- `sortOrder` (optional): Sort order (asc, desc - default: desc)
+**Note:** All fields are optional. Only provided fields will be updated.
 
 **Response:**
 ```json
 {
   "success": true,
+  "message": "Task updated successfully",
   "data": {
-    "tasks": [...],
-    "pagination": {
-      "page": 1,
-      "limit": 10,
-      "total": 25,
-      "pages": 3
-    }
+    "_id": "task_id",
+    "title": "Updated task title",
+    "description": "Updated description",
+    "status": "in-progress",
+    "priority": "medium",
+    "dueDate": "2024-12-31T00:00:00.000Z",
+    "userId": "user_id",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-02T00:00:00.000Z"
   }
 }
 ```
 
-#### Get Single Task
-```http
-GET /tasks/:id
-Authorization: Bearer <token>
-```
+---
 
-#### Update Task
-```http
-PUT /tasks/:id
-Authorization: Bearer <token>
-Content-Type: application/json
+### 9. Delete Task
 
+**DELETE** `/tasks/:id`
+
+Delete a task by ID.
+
+**Response:**
+```json
 {
-  "title": "Updated title",
-  "status": "in-progress"
+  "success": true,
+  "message": "Task deleted successfully"
 }
 ```
 
-#### Delete Task
-```http
-DELETE /tasks/:id
-Authorization: Bearer <token>
+---
+
+### Error Responses
+
+All endpoints return error responses in the following format:
+
+```json
+{
+  "success": false,
+  "message": "Error message here",
+  "errors": ["Detailed error 1", "Detailed error 2"]
+}
 ```
 
-## 🔒 Security Features
-
-- Password hashing with bcrypt
-- JWT token-based authentication
-- Protected routes on backend
-- Input validation with Joi
-- CORS enabled for cross-origin requests
-- Environment variables for sensitive data
-
-## 🎨 UI/UX Features
-
-- **Web:** Material UI components with responsive design
-- **Mobile:** React Native Paper with native feel
-- Toast notifications for user feedback
-- Loading states and skeleton loaders
-- Error boundaries for graceful error handling
-- Pull-to-refresh on mobile
-- Search and filter capabilities
-
-## 📝 Environment Variables
-
-### Backend (.env)
-```
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/taskmanager
-JWT_SECRET=your_super_secret_jwt_key
-JWT_EXPIRE=7d
-NODE_ENV=development
-```
-
-### Frontend (.env - optional)
-```
-REACT_APP_API_URL=http://localhost:5000
-```
-
-## 🧪 Testing
-
-### Test API Endpoints
-
-You can test the API using tools like:
-- Postman
-- cURL
-- Thunder Client (VS Code extension)
-
-### Sample cURL Commands
-
-**Register:**
-```bash
-curl -X POST http://localhost:5000/auth/register \
-  -H "Content-Type: application/json" \
-  -d '{"username":"testuser","email":"test@example.com","password":"password123"}'
-```
-
-**Login:**
-```bash
-curl -X POST http://localhost:5000/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"test@example.com","password":"password123"}'
-```
-
-**Get Tasks (replace TOKEN with actual token):**
-```bash
-curl -X GET http://localhost:5000/tasks \
-  -H "Authorization: Bearer TOKEN"
-```
-
-## 🚀 Deployment
-
-### Backend Deployment
-
-1. Set up a MongoDB database (MongoDB Atlas recommended)
-2. Update `MONGODB_URI` in production environment
-3. Set a strong `JWT_SECRET`
-4. Deploy to platforms like:
-   - Heroku
-   - AWS
-   - DigitalOcean
-   - Railway
-   - Render
-
-### Web Deployment
-
-Deploy the React app to:
-- Vercel
-- Netlify
-- AWS Amplify
-- Firebase Hosting
-
-Remember to set `REACT_APP_API_URL` to your production backend URL.
-
-### Mobile Deployment
-
-Build the mobile app using:
-```bash
-expo build:android
-expo build:ios
-```
-
-Or use EAS Build for better control.
-
-## 📚 Technologies Used
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB / Mongoose
-- JWT (jsonwebtoken)
-- bcryptjs
-- Joi
-- CORS
-- dotenv
-
-### Web Frontend
-- React 18
-- React Router DOM
-- Material UI
-- Axios
-- React Hot Toast
-- Context API
-
-### Mobile
-- React Native
-- Expo
-- React Navigation
-- React Native Paper
-- AsyncStorage
-- Axios
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 👤 Author
-
-Built as a full-stack developer machine test project.
-
-## 🙏 Acknowledgments
-
-- Material UI for React components
-- React Native Paper for mobile UI
-- MongoDB for database
-- All open-source contributors
+**Common Status Codes:**
+- `200`: Success
+- `201`: Created
+- `400`: Bad Request (validation errors)
+- `401`: Unauthorized (invalid/missing token)
+- `404`: Not Found
+- `500`: Internal Server Error
 
 ---
 
-**Note:** Make sure to update the API URLs in the mobile app configuration when testing on a physical device. Use your computer's IP address instead of `localhost`.
+## 📸 Screenshots
 
+### Web Application
+
+#### Login Page
+![Login Page](screenshots/web-login.png)
+*User login interface with email and password*
+
+#### Dashboard
+![Dashboard](screenshots/web-dashboard.png)
+*Main dashboard showing all tasks with search and filter options*
+
+#### Task Form
+![Task Form](screenshots/web-task-form.png)
+*Create/Edit task form with all task details*
+
+---
+
+### Mobile Application
+
+#### Login Screen
+![Mobile Login](screenshots/mobile-login.png)
+*Mobile login screen with Material Design UI*
+
+#### Task List
+![Mobile Task List](screenshots/mobile-task-list.png)
+*Task list with pull-to-refresh and filter options*
+
+#### Task Details
+![Mobile Task Form](screenshots/mobile-task-form.png)
+*Task creation/editing screen on mobile*
+
+---
+
+**Note:** To add screenshots:
+1. Create a `screenshots` folder in the root directory
+2. Add your screenshot images (PNG or JPG format)
+3. Update the image paths in this README
+4. Recommended sizes: 1280x720 for web, 375x667 for mobile
+
+---
+
+## 🔒 Security Features
+
+- Password hashing with bcryptjs
+- JWT token-based authentication
+- Security questions for password recovery
+- Input validation and sanitization
+- Protected API routes
+- CORS configuration
+
+---
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 👤 Author
+
+**Keerthi Krishna**
+- Email: keerthikrishna920@gmail.com
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+---
+
+## 📞 Support
+
+For support, email keerthikrishna920@gmail.com or open an issue in the repository.
+
+---
+
+**Happy Task Managing! 🎉**
