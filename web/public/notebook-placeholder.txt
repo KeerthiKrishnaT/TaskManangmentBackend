@@ -1,0 +1,18 @@
+INSTRUCTIONS FOR ADDING NOTEBOOK IMAGE:
+
+1. Place your notebook image file (PNG, JPG, or SVG) in one of these locations:
+   - Option 1: frontend/public/notebook.png (recommended for easy access)
+   - Option 2: frontend/src/assets/notebook.png (then import it in AnimatedBackground.js)
+
+2. If using public folder:
+   - Keep the current code as is (it uses /notebook.png)
+   
+3. If using src/assets:
+   - Uncomment the import line in AnimatedBackground.js
+   - Update the img src to use {notebookImage}
+
+4. The image will automatically have 15% opacity (0.15)
+   - To adjust opacity, change the 'opacity: 0.15' value in AnimatedBackground.js
+
+5. Supported formats: PNG, JPG, SVG, WEBP
+
