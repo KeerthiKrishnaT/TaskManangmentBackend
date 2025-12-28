@@ -117,12 +117,7 @@ cd backend
 # Install dependencies
 npm install
 
-# Create .env file
-# Add the following variables:
-# MONGODB_URI=your_mongodb_connection_string
-# JWT_SECRET=your_secret_key
-# JWT_EXPIRE=7d
-# PORT=5000
+
 
 # Example .env file:
 MONGODB_URI=mongodb://localhost:27017/taskmanager
@@ -162,15 +157,9 @@ cd mobile
 # Install dependencies
 npm install
 
-# Update API URL in src/config/api.js
-# Change to your computer's IP address:
-# const API_BASE_URL = 'http://YOUR_IP:5000';
-
-# Start Expo development server
 npm start
 
-# Scan QR code with Expo Go app (Android/iOS)
-# Or press 'a' for Android emulator, 'i' for iOS simulator
+
 ```
 
 **Note**: For mobile testing, ensure:
